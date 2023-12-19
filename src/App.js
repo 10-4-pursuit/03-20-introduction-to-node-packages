@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { ToastContainer, toast } from "react-toastify";
+import { Slide, Zoom, Flip, Bounce } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css'
+import "./App.css";
 
 function App() {
+
+  const message = () => toast("Hey Boo!");
+  const success = () => toast.success("Submission Successful");
+  const warn = () => toast.warn("I told you NOT to press this!");
+  const info = () => toast.info("This is where information shows up");
+  const error = () => toast.error("Wrong, Try Again");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="entirelayout">
+     
+     <ToastContainer
+      position="bottom-right"
+      theme="colored"
+      hideProgressBar={false}
+      transition={Zoom}
+      />
+
+      <button onClick={message}>Say Hi!</button>
+      <button onClick={success}>Submit</button>
+      <button onClick={warn}>Don't Press This</button>
+      <button onClick={info}>Want Info?</button>
+      <button onClick={error}>Mistake</button>
+  
     </div>
   );
 }
