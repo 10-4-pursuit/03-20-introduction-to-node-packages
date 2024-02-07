@@ -1,23 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import { ToastContainer, toast, Flip, Bounce, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./App.css";
 
 function App() {
+  const info = () => {
+    toast.info("This is where we provide Info", {
+      theme: "dark",
+      position: "top-center",
+    });
+  };
+
+  const success = () => {
+    toast.success("This was successful", {
+      theme: "dark",
+      transition: Flip,
+      position: "top-center",
+    });
+  };
+
+  const warning = () => {
+    toast.warning("Warning Message", {
+      theme: "colored",
+      transition: Zoom,
+      position: "bottom-center",
+    });
+  };
+
+  const error = () => {
+    toast.error("Error Message", {
+      theme: "dark",
+      transition: Flip,
+      position: "bottom-center",
+    });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ToastContainer />
+      <button onClick={info}> Info </button>
+      <button onClick={success}> Success </button>
+      <button onClick={warning}> Warning </button>
+      <button onClick={error}> Error </button>
     </div>
   );
 }
