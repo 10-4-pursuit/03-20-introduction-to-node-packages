@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify"; 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ToastContainer 
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      <h1>React App</h1>
+      <button onClick={() => toast("Wow so easy!")}>Notify!</button>
+      <button onClick={() => toast("Error", { type: "error" })}>Error</button>
+      <button onClick={() => toast("Warning", { type: "warning" })}>Warning</button>
+      <button onClick={() => toast("Info", { type: "info" })}>Info</button>
+      <button onClick={() => toast("Success", { type: "success" })}>Success</button>
     </div>
   );
 }
