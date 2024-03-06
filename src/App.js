@@ -1,25 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Greeting from './Greeting';
+import Farewell from './Farewell';
 
-function App() {
+const App = () => {
+  const showNotification = () => {
+    toast.info("Hello, World");
+  };
+
+  const showSuccessNotification = () => {
+    toast.success("Success Notification", "This is a success notification", {
+      icon: "🚀"
+    });
+  };
+
+  const showErrorNotification = () => {
+    toast.error("Error Notification");
+  }
+
+  const showInfoNotification = () => {
+    toast.info("Info Notification");
+  }
+
+  const showWarningNotification = () => {
+    toast.warning("Warning Notification");
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Greeting name="Yah-neen" />
+      <Farewell />
+      <button onClick={showNotification}>Show notification</button>
+      <button onClick={showSuccessNotification}>Success</button>
+      <button onClick={showErrorNotification}>Error</button>
+      <button onClick={showInfoNotification}>Info</button>
+      <button onClick={showWarningNotification}>Warning</button>
+      <ToastContainer/>
     </div>
   );
-}
+};
 
 export default App;
+
